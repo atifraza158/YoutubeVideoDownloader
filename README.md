@@ -30,19 +30,13 @@ Before running the application, ensure that you have the following installed:
     pip install -r requirements.txt
     ```
 
-3. Apply database migrations:
-
-    ```bash
-    python manage.py migrate
-    ```
-
-4. Run the development server:
+3. Run the development server:
 
     ```bash
     python manage.py runserver
     ```
 
-5. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to access the application.
+4. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to access the application.
 
 ## Usage
 
