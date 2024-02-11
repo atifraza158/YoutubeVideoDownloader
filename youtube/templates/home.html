@@ -11,7 +11,9 @@
             <form action="" method="post" class="col-lg-8 col-md-8 col-sm-10">
                 {% csrf_token %}
                 <label for="" class="form-label">Enter URL of the Video</label>
-                <input type="text" name="link" class="form-control" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                <input type="text" name="link" id="link" class="form-control"
+                    placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                <span id="input-error" class="mt-2" style="visibility: hidden; color: red;"></span>
                 <br>
                 <div class="d-flex" style="justify-content: right;">
                     <button type="submit" class="button-86">Download</button>
@@ -20,5 +22,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    let form = document.querySelector('form');
+    let link_input = document.querySelector('#link');
+    let input_error = document.querySelector('#input-error');
+
+    form.addEventListener('submit', function(event) {
+        if (link_input.value.trim() === '') {
+            event.preventDefault(); // Prevent form submission
+            input_error.textContent = "Please enter a link"; // Change the text content
+            input_error.style.visibility = "visible"; // Make the error message visible
+        } else {
+            input_error.textContent = ""; // Clear the error message if input is not empty
+            input_error.style.visibility = "hidden"; // Hide the error message
+        }
+    });
+</script>
+
+
 
 {% endblock content %}
